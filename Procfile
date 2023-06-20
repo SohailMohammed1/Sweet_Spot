@@ -1,0 +1,1 @@
+web: gunicorn heroku-app-sweet-spot.wsgi 
