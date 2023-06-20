@@ -1,3 +1,10 @@
+import os 
+import dj_database_url
+if os.path.isfile('env.py'):
+    import env 
+
+
+
 """
 Django settings for django_sweet_spot project.
 
@@ -20,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=b1xoxv8dvvb3$i$lv0=0vo2_7t1(mnvq49zxd@a*08a!!!gcd'
+SECRET_KEY = os.environ.get('u0l6nO8kR-Z-OsRkSg-FAFylmVKPfIYM')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,10 +82,7 @@ WSGI_APPLICATION = 'django_sweet_spot.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url(os.environ.get("DATABASE_URL"))
 }
 
 
