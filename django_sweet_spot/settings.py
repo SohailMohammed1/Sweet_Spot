@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=b1xoxv8dvvb3$i$lv0=0vo2_7t1(mnvq49zxd@a*08a!!!gcd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-sohailmohamme-sweetspot-q6dg6giorvp.ws-eu99.gitpod.io']
+ALLOWED_HOSTS = ['8000-sohailmohamme-sweetspot-jooz740xc45.ws-eu100.gitpod.io']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sweet_spot', 
 ]
 
 MIDDLEWARE = [
@@ -123,4 +124,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-testing 123
