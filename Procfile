@@ -1,1 +1,1 @@
-web: gunicorn heroku-app-sweet-spot.wsgi 
+web: gunicorn sweet-spot.wsgi 
