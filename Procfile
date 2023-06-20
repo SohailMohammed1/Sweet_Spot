@@ -1,1 +1,1 @@
-web: gunicorn Sweet_Spot.wsgi 
+web: gunicorn sweet-spot.wsgi 
