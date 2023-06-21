@@ -33,7 +33,7 @@ SECRET_KEY = 'u0l6nO8kR-Z-OsRkSg-FAFylmVKPfIYM'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heroku-app-sweet-spot.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['heroku-app-sweet-spot-6682d185079a.herokuapp.com', 'localhost']
 
 
 # Application definition
