@@ -6,8 +6,9 @@ STATUS = ((0, "draft"), (1, "Published"))
 
 
 class DinnerReservation(models.Model):
-    first_name = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=100, unique=True)
     last_name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=255, unique=True, null=True)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
     no_of_guests = models.IntegerField()
