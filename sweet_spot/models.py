@@ -39,6 +39,7 @@ class Reservation(models.Model):
     def cancel(self): #Logic to all user to cancel reservation
         self.update_status(CANCELLED_STATUS)
 
+
     def update_status(self, new_status):
         self.status = new_status
         self.save()
