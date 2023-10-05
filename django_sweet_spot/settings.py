@@ -33,7 +33,7 @@ SECRET_KEY = 'u0l6nO8kR-Z-OsRkSg-FAFylmVKPfIYM'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heroku-app-sweet-spot-6682d185079a.herokuapp.com', '8000-sohailmohamme-sweetspot-jooz740xc45.ws-eu100.gitpod.io', 'localhost']
+ALLOWED_HOSTS = ['heroku-app-sweet-spot-6682d185079a.herokuapp.com', '8000-sohailmohamme-sweetspot-xxpk4e5srz5.ws-eu105.gitpod.io', 'localhost']
 
 
 # Application definition
@@ -146,4 +146,10 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your_cloud_name',
+    'API_KEY': 'your_api_key',
+    'API_SECRET': 'your_api_secret',
+}
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

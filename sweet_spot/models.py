@@ -1,9 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "draft"), (1, "Published"))
 
+
+class MyModel(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
 
 class DinnerReservation(models.Model):
     first_name = models.CharField(max_length=100, unique=True)
