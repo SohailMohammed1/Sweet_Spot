@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dinner Reservations</title>
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Dinner Reservations</h1>
     <ul>
         {% for reservation in reservations %}
-        <li>
-            <strong>Name:</strong> {{ reservation.first_name }} {{ reservation.last_name }} <br>
+        <li {% if reservation.status == 1 %}class="done"{% endif %}>
+            <strong>Name:</strong>
+            {% if reservation.status == 1 %}
+                <strike>{{ reservation.first_name }} {{ reservation.last_name }}</strike>
+            {% else %}
+                {{ reservation.first_name }} {{ reservation.last_name }}
+            {% endif %}
+            <br>
             <strong>Email:</strong> {{ reservation.email }} <br>
             <strong>Phone:</strong> {{ reservation.phone_number }} <br>
             <strong>Number of Guests:</strong> {{ reservation.no_of_guests }} <br>
