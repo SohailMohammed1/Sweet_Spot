@@ -1,6 +1,13 @@
 from django.shortcuts import render
+from .models import DinnerReservation  
 
-
-# Create your views here.
 def get_sweet_spot(request):
-    return render(request, 'sweet_spot/sweet_spot.html')
+    reservations = DinnerReservation.objects.all()
+
+    
+    context = {
+        'reservations': reservations
+    }
+
+    
+    return render(request, 'sweet_spot/sweet_spot.html', context)
