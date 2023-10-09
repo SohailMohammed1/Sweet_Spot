@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from sweet_spot.views import get_sweet_spot
+from sweet_spot.views import get_sweet_spot, add_reservation
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_sweet_spot, name='sweet_spot')
+    path('', get_sweet_spot, name='sweet_spot'),
+    path('add', add_reservation, name='add')
 ]
