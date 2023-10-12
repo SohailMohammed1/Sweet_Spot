@@ -4,72 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinner Reservations</title>
-    <style>
-        .done {
-            text-decoration: line-through;
-        }
-    </style>
+    <title>Add Reservation</title>
 </head>
 
 <body>
-    <h1>Add a reservation</h1>
-    <form method="POST" action="add">
+    <h1>Add Reservation</h1>
+    <form method="POST" action="/add/">
         {% csrf_token %}
-        <div>
-            <p>
-                <label for="id_first_name">First Name: </label>
-                <input type="text" id="id_first_name" name="first_name">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_last_name">Last Name: </label>
-                <input type="text" id="id_last_name" name="last_name">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_email">Email: </label>
-                <input type="email" id="id_email" name="email">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_phone_number">Phone Number: </label>
-                <input type="tel" id="id_phone_number" name="phone_number">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_no_of_guests">Number of Guests: </label>
-                <input type="number" id="id_no_of_guests" name="no_of_guests">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_date_selected">Date: </label>
-                <input type="date" id="id_date_selected" name="date_selected">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_time_selected">Time: </label>
-                <input type="time" id="id_time_selected" name="time_selected">
-            </p>
-        </div>
-        <div>
-            <p>
-                <label for="id_special_request">Special Request: </label>
-                <textarea id="id_special_request" name="special_request"></textarea>
-            </p>
-        </div>
-        <div>
-            <p>
-                <button type="submit">Add reservation</button>
-            </p>
-        </div>
+        <!-- Form fields for reservation input -->
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="tel" id="phone_number" name="phone_number" required><br>
+
+        <label for="no_of_guests">Number of Guests:</label>
+        <input type="number" id="no_of_guests" name="no_of_guests" required><br>
+
+        <label for="date_selected">Date:</label>
+        <input type="date" id="date_selected" name="date_selected" required><br>
+
+        <label for="time_selected">Time:</label>
+        <input type="time" id="time_selected" name="time_selected" required><br>
+
+        <label for="special_request">Special Request:</label><br>
+        <textarea id="special_request" name="special_request" rows="4" cols="50"></textarea><br>
+
+        <button type="submit">Submit Reservation</button>
     </form>
+
+    <!-- Display existing reservations -->
+    <h2>Existing Reservations:</h2>
+    <ul>
+        {% for reservation in reservations %}
+            <li>{{ reservation.first_name }} {{ reservation.last_name }} - {{ reservation.date_selected }}</li>
+        {% empty %}
+            <li>No existing reservations</li>
+        {% endfor %}
+    </ul>
 </body>
 
 </html>
