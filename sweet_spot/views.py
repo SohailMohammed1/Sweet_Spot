@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import DinnerReservation
 from .forms import ReservationForm
+from django.shortcuts import get_object_or_404
+
 
 def get_sweet_spot(request):
     reservations = DinnerReservation.objects.all()
@@ -14,7 +16,7 @@ def add_reservation(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save(commit=False)
-            reservation.status = 0  # Set your desired default value for status
+            reservation.status = 0  
             reservation.save()
             return redirect('sweet_spot')
     else:
@@ -24,5 +26,22 @@ def add_reservation(request):
         'reservations': DinnerReservation.objects.all()
     }
     return render(request, 'sweet_spot/add_reservation.html', context)
+
+
+def edit_reservation(request, reservation_id):
+    reservation = get_object_or_404(DinnerReservation, pk=reservation_id)
+    if request.method == "POST":
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            return redirect('sweet_spot')
+    else:
+        form = ReservationForm(instance=reservation)
+    context = {
+        'form': form
+    }
+    return render(request, 'sweet_spot/edit_reservation.html', context)
+
+    
 
 

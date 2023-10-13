@@ -31,6 +31,7 @@
             <strong>Time:</strong> {{ reservation.time_selected }} <br>
             <strong>Special Request:</strong> {{ reservation.special_request }} <br>
             <strong>Status:</strong> {{ reservation.get_status_display }} <br>
+            <a href="/edit/{{ reservation.id }}">Edit</a> <br>
             <hr>
         </li>
         {% empty %}

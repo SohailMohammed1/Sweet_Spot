@@ -8,14 +8,7 @@
 </head>
 
 <body>
-    <h1>Add Reservation</h1>
-    <form method="POST" action="/add/">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit Reservation</button>
-    </form>
-
-    <!-- Display existing reservations -->
+    
     <h2>Existing Reservations:</h2>
     <ul>
         {% for reservation in reservations %}
@@ -27,4 +20,3 @@
 </body>
 
 </html>
-
