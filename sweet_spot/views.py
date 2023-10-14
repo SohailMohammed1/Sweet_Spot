@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 
 
 def get_sweet_spot(request):
-    reservations = DinnerReservation.objects.all()
+    reservations = DinnerReservation.objects.all().order_by('id')  
     context = {
         'reservations': reservations
     }
